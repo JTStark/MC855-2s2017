@@ -7,6 +7,7 @@ systemctl start sshd
 # Start Hadoop
 hadoop namenode -format
 start-dfs.sh
+start-yarn.sh
 
 # Hadoop Prep
 $HADOOP_HOME/bin/hadoop fs -ls /user/input
@@ -18,8 +19,8 @@ $HADOOP_HOME/bin/hadoop fs -ls /user/input
 ...
 $HADOOP_HOME/bin/hadoop fs -mkdir /user/output
 
-# Hadoop Remove Folder, if needed
-$HADOOP_HOME/bin/hadoop fs -rm -r <directory>
+# Other commands
+$HADOOP_HOME/bin/hadoop fs -rm -r <directory> # Hadoop Remove Folder, if needed
 
 # MapReduce Execution
 $HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.7.4.jar \ 
