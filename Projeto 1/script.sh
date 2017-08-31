@@ -15,17 +15,13 @@ $HADOOP_HOME/bin/hadoop fs -mkdir /user/input
 $HADOOP_HOME/bin/hadoop fs -copyFromLocal /home/letras/sertanejo /user/input/
 $HADOOP_HOME/bin/hadoop fs -ls /user/input
 ...
-$HADOOP_HOME/bin/hadoop fs -mkdir /user/output
 
 # Other commands
 stop-all.sh
 $HADOOP_HOME/bin/hadoop fs -rm -r <directory> # Remove Folder, if needed
 
 # MapReduce Execution
-$HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.7.4.jar \ 
--file /home/hadoop/mapper.py -mapper /home/hadoop/mapper.py \
--file /home/hadoop/reducer.py -reducer /home/hadoop/reducer.py \
--input /user/input/sertanejo/* -output /user/output
+$HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.7.4.jar -file /home/hadoop/mapper.py -mapper /home/hadoop/mapper.py -file /home/hadoop/reducer.py -reducer /home/hadoop/reducer.py -input /user/input/sertanejo/* -output /user/output
 
 # Getting Results
 $HADOOP_HOME/bin/hadoop fs -ls /user/output #Show result files
