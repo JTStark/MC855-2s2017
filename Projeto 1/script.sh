@@ -18,6 +18,9 @@ $HADOOP_HOME/bin/hadoop fs -ls /user/input
 ...
 $HADOOP_HOME/bin/hadoop fs -mkdir /user/output
 
+# Hadoop Remove Folder, if needed
+$HADOOP_HOME/bin/hadoop fs -rm -r <directory>
+
 # MapReduce Execution
 $HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.7.4.jar \ 
 -file /home/hadoop/mapper.py -mapper /home/hadoop/mapper.py \
