@@ -10,11 +10,9 @@ start-dfs.sh
 start-yarn.sh
 
 # Hadoop Prep
-$HADOOP_HOME/bin/hadoop fs -ls /user/input
 $HADOOP_HOME/bin/hadoop fs -mkdir /user
 $HADOOP_HOME/bin/hadoop fs -mkdir /user/input
-$HADOOP_HOME/bin/hadoop fs -mkdir /user/input/sertanejo
-$HADOOP_HOME/bin/hadoop fs -copyFromLocal /home/letras/sertanejo/* /user/input/sertanejo
+$HADOOP_HOME/bin/hadoop fs -copyFromLocal /home/letras/sertanejo /user/input/
 $HADOOP_HOME/bin/hadoop fs -ls /user/input
 ...
 $HADOOP_HOME/bin/hadoop fs -mkdir /user/output
