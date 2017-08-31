@@ -18,3 +18,5 @@ for line in sys.stdin:
         #
         # tab-delimited; the trivial word count is 1
         print '%s\t%s' % (word.lower(), 1)
+
+        
