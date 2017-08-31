@@ -7,7 +7,7 @@ for line in sys.stdin:
     # remove leading and trailing whitespace
     line = line.strip()
     # eliminate unwished characters
-    line = line.translate(None, ',:;!?@#$')
+    line = line.translate(None, '.,:;!?@#"$')
     # split the line into words
     words = line.split()
     # increase counters
