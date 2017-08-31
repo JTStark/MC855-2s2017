@@ -5,7 +5,7 @@ echo "$(cat 'FILE_INPUT.txt')" | python mapper.py | sort -k1,1 | python reducer.
 systemctl start sshd
 
 # Start Hadoop
-hadoop namenode -format
+hadoop namenode -format # If needed
 start-dfs.sh
 start-yarn.sh
 
@@ -20,7 +20,8 @@ $HADOOP_HOME/bin/hadoop fs -ls /user/input
 $HADOOP_HOME/bin/hadoop fs -mkdir /user/output
 
 # Other commands
-$HADOOP_HOME/bin/hadoop fs -rm -r <directory> # Hadoop Remove Folder, if needed
+stop-all.sh
+$HADOOP_HOME/bin/hadoop fs -rm -r <directory> # Remove Folder, if needed
 
 # MapReduce Execution
 $HADOOP_HOME/bin/hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.7.4.jar \ 
