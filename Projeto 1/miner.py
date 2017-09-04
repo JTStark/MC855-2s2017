@@ -47,7 +47,9 @@ for style in artists:
         r = requests.get(artist_url)
         artAns = json.loads(r.text)
 
-        for item in artAns['artist']['toplyrics']['item']:
+        #for item in artAns['artist']['toplyrics']['item']:
+        for i in range(0, 14):
+            item = artAns['artist']['toplyrics']['item'][i]
             song_id = item['id']
             r = requests.get(search_url + "?art=" + artist + "&musid=" + song_id + "&apikey=" + key)
             successful = False
