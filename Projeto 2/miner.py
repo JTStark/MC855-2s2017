@@ -66,21 +66,36 @@ for paper in links:
 
 
     i = 0
-    for article in news_paper.articles[:129]:
-        article.download()
-        article.parse()
+    j = 130
+    for article in news_paper.articles[:j]:
+        try:
+            article.download()
+            flag = True
+        except:
+            print("Erro no download")
+            j += 1
+            flag = False
 
-        f = open(folder_head + "/headline" + '{:03d}'.format(i) + ".txt", "w+")
-        f.write(article.title)
-        f.close()
+        if flag:
+            try:
+                article.parse()
+            except:
+                print("Erro no parse")
+                j += 1
+                flag = False
 
-        f = open(folder_text + "/artigo" + '{:03d}'.format(i) + ".txt", "w+")
-        f.write(article.title)
-        f.close()
+        if flag:
+            f = open(folder_head + "/headline" + '{:03d}'.format(i) + ".txt", "w+")
+            f.write(article.title)
+            f.close()
 
-        i += 1
-        print('{:05.2f}'.format(i/130.0) + "% concluidos de " + paper)
-        time.sleep(5)
+            f = open(folder_text + "/artigo" + '{:03d}'.format(i) + ".txt", "w+")
+            f.write(article.title)
+            f.close()
+
+            i += 1
+            print('{:05.2f}'.format(100*i/130.0) + "% concluidos de " + paper)
+            time.sleep(5)
 
     t2 = time.time()
     print("Tempo ateh agr: " + str(t2 - t1) + " segundos")
