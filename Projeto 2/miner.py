@@ -90,11 +90,11 @@ for paper in links:
             f.close()
 
             f = open(folder_text + "/artigo" + '{:03d}'.format(i) + ".txt", "w+")
-            f.write(article.title)
+            f.write(article.text)
             f.close()
 
             i += 1
-            print('{:05.2f}'.format(100*i/130.0) + "% concluidos de " + paper)
+            print('{:05.2f}'.format(100*i/j) + "% concluidos de " + paper)
             time.sleep(5)
 
     t2 = time.time()
